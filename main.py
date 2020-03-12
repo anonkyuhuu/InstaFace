@@ -6,7 +6,7 @@
 # ----------------------------------------------------
 import os,sys,time,json
 from bs4 import BeautifulSoup as parse
-from base64 import * as wkwk
+from base64 import b64decode as wkwk
 import requests as r
 # ------------------------ WARNA ---------------------
 G = '\x1b[0;32m'
