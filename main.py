@@ -6,7 +6,7 @@
 # ----------------------------------------------------
 import os,sys,time,json
 from bs4 import BeautifulSoup as parse
-from base64 import *
+from base64 import * as wkwk
 import requests as r
 # ------------------------ WARNA ---------------------
 G = '\x1b[0;32m'
@@ -57,13 +57,15 @@ def instagram():
 		time.sleep(2)
 		os.system('cp '+bra+' /sdcard && rm -rf '+bra)
 
+
 def about_program():
 	os.system('clear')
-	runntek(b64decode('Ck5hbWUgICAgOiAgSW5zdGFGYWNlClZlcnNpb24gOiAgMS4wCkF1dGhvciAgOiAgc0N1YnkwNwpUZWFtICAgIDogIEN5YmVyIEdob3N0IElEClRoYW5rcyAgOiAgQWxsYWggU1dULCBNYXJrIFp1Y2tlcmJlcmcKCkluZm8gICAgOiAgSW5zdGFGYWNlIGlzIHRvb2wgZG93bmxvYWRpbmcKICAgICAgICAgICBJbnN0YWdyYW0gdmlkZW9zIGFuZCBGYWNlYm9vawoKTm90ZSAgICA6ICBwbGVhc2UgZG8gbm90IHNlbGwgYW5kIGJ1eSB0aGlzIHRvb2wuCiAgICAgICAgICAgdGhpcyB0b29sIGlzIDEwMCUgZnJlZS4KICAgICAgICAgICBJZiB5b3UgZmluZCBzb21lb25lIHdobyB0cmFkZXMgdGhpcyB0b29sCiAgICAgICAgICAgcGxlYXNlIHJlcG9ydCB0byBtZS4KCsKpIDIwMjAgc0N1YnkwNywgQ3liZXIgR2hvc3QgSW5kb25lc2lh'))
+	runntek(wkwk('Ck5hbWUgICAgOiAgSW5zdGFGYWNlClZlcnNpb24gOiAgMS4wCkF1dGhvciAgOiAgc0N1YnkwNwpUZWFtICAgIDogIEN5YmVyIEdob3N0IElEClRoYW5rcyAgOiAgQWxsYWggU1dULCBNYXJrIFp1Y2tlcmJlcmcsCgkgICBKdXN0YUhhY2tlcgoKSW5mbyAgICA6ICBJbnN0YUZhY2UgaXMgdG9vbCBkb3dubG9hZGluZwogICAgICAgICAgIEluc3RhZ3JhbSB2aWRlb3MgYW5kIEZhY2Vib29rCgpOb3RlICAgIDogIHBsZWFzZSBkbyBub3Qgc2VsbCBhbmQgYnV5IHRoaXMgdG9vbC4KICAgICAgICAgICB0aGlzIHRvb2wgaXMgMTAwJSBmcmVlLgogICAgICAgICAgIElmIHlvdSBmaW5kIHNvbWVvbmUgd2hvIHRyYWRlcyB0aGlzIHRvb2wKICAgICAgICAgICBwbGVhc2UgcmVwb3J0IHRvIG1lLgoKwqkgMjAyMCBzQ3VieTA3LCBDeWJlciBHaG9zdCBJbmRvbmVzaWE='))
 
 
 
 def facebook():
+     try:
 	url = raw_input('\nURL : ')
         xxx = raw_input('\nDownload? (y/n) ')
         if 'y' in xxx:
@@ -87,6 +89,12 @@ def facebook():
                 print('{}[!] Succesfully\n\n\n{}CHECK ON INTERNAL!!!'.format(GL,BL))
                 time.sleep(2)
                 os.system('cp '+bra+' /sdcard && rm -rf '+bra)
+     except KeyboardInterrupt:
+                exit()
+     except:
+                print('URL NOT VALID')
+                time.sleep(int("2"))
+                os.system('python2 main.py')
 
 def contact():
 	os.system('xdg-open https://api.whatsapp.com/send?phone=62895611982226 && python2 main.py')
@@ -111,22 +119,25 @@ fbvid		for download facebook video
 about		show about this program
 contact		for contact admin
 update		update this tool
-exit		exit this tool'''.format(BL,P,W))
+exit		exit this tool\n'''.format(BL,P,W))
 
-	nanya = raw_input('\n{}>> {}'.format(BL,W))
-	if nanya == 'igvid':
-		instagram()
-	elif nanya == 'fbvid':
-		facebook()
-	elif nanya == 'about':
-		about_program()
-	elif 'contact' in nanya:
-		contact()
-	elif 'update' in nanya:
-		print('update not yet available')
-		time.sleep(3)
-		os.system('python2 main.py')
-	elif nanya == 'exit':
-		exit('Bye!')
-	else:
-		print('{} "{}" command not found'.format(R,nanya))
+	while True:
+
+		nanya = raw_input('{}>> {}'.format(BL,W))
+		if nanya == 'igvid':
+			instagram()
+		elif nanya == 'fbvid':
+			facebook()
+		elif nanya == 'about':
+			about_program()
+		elif 'contact' in nanya:
+			contact()
+		elif 'update' in nanya:
+			print('update not yet available')
+			time.sleep(3)
+			os.system('python2 main.py')
+		elif nanya == 'exit':
+			exit('Bye!')
+		else:
+			print('{}{}: command not found'.format(R,nanya))
+			pass
